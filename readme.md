@@ -15,10 +15,10 @@ There are two tools: `test_grid.py` and `unwarp_batch.py`.
 - run `python unwarp_batch.py --output-format=jpg example.svg 23 25 20 example.png`
 
 
-## Notes on creation calibration image ##
+## Creating calibration images ##
 - The objects at the intersections should be circles
 - All the circles should have color magenta (`#FF00FF`) except for the special types
-- The upper left corner is marked by green dot (`#00FF00`)
+- The upper left corner is marked by a green dot (`#00FF00`)
 - The second dot on the first row should be red (`#FF0000`)
 - The second dot on the first column should be blue (`#0000FF`)
 - The grid should be rectangular
