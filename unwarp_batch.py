@@ -5,9 +5,9 @@ from pathlib import Path
 import grid_extractor
 import unwarp
 
-argparser = argparse.ArgumentParser()
+argparser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 argparser.add_argument('--destination-folder', type=Path, help='If set, original filenames are used. Else the files are stored in the current directory with the prefix "unwarped"')
-argparser.add_argument('--output-format', default='png')
+argparser.add_argument('--output-format', default='png', help='jpg, png, tiff, etc ... Can be any format supported by imageio')
 argparser.add_argument('--processes', default=4, type=int, help='Number of simultaneous processes')
 argparser.add_argument('calibration_svg')
 argparser.add_argument('grid_size_x', type=int)

@@ -22,9 +22,11 @@ positional arguments:
 optional arguments:
   -h, --help            show this help message and exit
   --destination-folder DESTINATION_FOLDER
-                        If set, original filenames are used. Else the files are stored in the current directory with the prefix "unwarped"
+                        If set, original filenames are used. Else the files are stored in the current directory with the prefix "unwarped" (default: None)
   --output-format OUTPUT_FORMAT
+                        jpg, png, tiff, etc ... Can be any format supported by imageio (default: png)
   --processes PROCESSES
+                        Number of simultaneous processes (default: 4)
 ```
 
 * `test_grid.py` lets you generate a  test image to check if the grid is detected correctly (the continous lines) and if the interpolation works (shown by the red crosses). To check the usage see `test_grid.py --help`
