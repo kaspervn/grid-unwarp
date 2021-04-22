@@ -26,7 +26,7 @@ optional arguments:
   --output-format OUTPUT_FORMAT
                         jpg, png, tiff, etc ... Can be any format supported by imageio (default: png)
   --processes PROCESSES
-                        Number of simultaneous processes (default: 4)
+                        Number of simultaneous processes. Default equals amount of CPU cores (default: -1)
 ```
 
 * `test_grid.py` lets you generate a  test image to check if the grid is detected correctly (the continous lines) and if the interpolation works (shown by the red crosses). To check the usage see `test_grid.py --help`
@@ -50,8 +50,9 @@ optional arguments:
 
 ## Requirements
 - Python 3.7 or higher
-- numpy
-- imageio
-- scipy.ndimage
-- scipy.interpolate
-- matplotlib (for `test_grid.py`)
+- The following pip packages:
+  - numpy
+  - imageio
+  - scipy
+  - matplotlib (for `test_grid.py`)
+  - Execution-Time
