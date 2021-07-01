@@ -55,4 +55,5 @@ optional arguments:
   - imageio
   - scipy
   - matplotlib (for `test_grid.py`)
+  - more-itertools
   - Execution-Time

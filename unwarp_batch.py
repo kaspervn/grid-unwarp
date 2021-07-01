@@ -1,6 +1,8 @@
 import argparse
 import multiprocessing
 from pathlib import Path
+from glob import glob
+from more_itertools import flatten
 
 from execution_time import ExecutionTime
 
@@ -51,11 +53,14 @@ if __name__ == "__main__":
     argparser.add_argument('grid_size_x', type=int)
     argparser.add_argument('grid_size_y', type=int)
     argparser.add_argument('output_pixels_per_grid_unit', type=int)
-    argparser.add_argument('input_files', nargs='+', type=Path)
+    argparser.add_argument('input_files', nargs='+', type=lambda x: list(map(Path, glob(x))))
 
     args = argparser.parse_args()
-
     args.grid_size = (args.grid_size_x, args.grid_size_y)
+
+    args.input_files = list(flatten(args.input_files))
+
+    print(args.input_files)
 
     unwarp_params = prepare_coordinate_map(args)
 
