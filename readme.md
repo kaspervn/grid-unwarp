@@ -7,7 +7,7 @@ Software to unwarp images based on a grid calibration image. The calibration can
 There are two tools: `test_grid.py` and `unwarp_batch.py`. 
 
 * `unwarp_batch.py` lets you unwarp one or many images based on the same calibration data. See `unwarp_batch.py --help`
-
+* `unwarp_cl.py` Behaves the same as `unwarp_batch.py` but uses OpenCL to do the calculations on your GPU. Speedups over 10x have been seen. 
 
 ```
 usage: unwarp_batch.py [-h] [--destination-folder DESTINATION_FOLDER] [--output-format OUTPUT_FORMAT] [--processes PROCESSES] calibration_svg grid_size_x grid_size_y output_pixels_per_grid_unit [input_files ...]
@@ -58,3 +58,5 @@ optional arguments:
   - matplotlib (for `test_grid.py`)
   - more-itertools
   - Execution-Time
+  - pyopencl (for `unwarp_cl.py`)
+  - joblib (for `unwarp_cl.py`)

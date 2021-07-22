@@ -67,7 +67,7 @@ if __name__ == "__main__":
     argparser.add_argument('grid_size_x', type=int)
     argparser.add_argument('grid_size_y', type=int)
     argparser.add_argument('output_pixels_per_grid_unit', type=int)
-    argparser.add_argument('input_files', nargs='*', type=lambda x: list(map(Path, glob(x))))
+    argparser.add_argument('input_files', nargs='*', type=lambda x: list(map(Path, glob(x))), help="All input files. Can use wildcards like *.tiff")
 
     args = argparser.parse_args()
     args.grid_size = (args.grid_size_y, args.grid_size_x)
