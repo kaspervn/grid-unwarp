@@ -31,10 +31,11 @@ optional arguments:
 
 * `test_grid.py` lets you generate a  test image to check if the grid is detected correctly (the continous lines) and if the interpolation works (shown by the red crosses). To check the usage see `test_grid.py --help`
 
+It was noticed that the PNG output for photo's made the process really slow. For fast lossless storage, use TIFF.
+
 ## Examples ##
 - run `python test_grid.py -b example.png example.svg 23 25` to show a test image applied to the example image
 - run `python unwarp_batch.py --output-format=jpg example.svg 23 25 20 example.png`
-
 
 ## Creating calibration images ##
 - Open the bitmap image in inkscape directly. After that use save-as to save as svg. This makes sure the units/sizes of everything are correct. Do not first create a empty document, and then import the image.
