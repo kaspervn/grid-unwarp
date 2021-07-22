@@ -10,18 +10,18 @@ There are two tools: `test_grid.py` and `unwarp_batch.py`.
 
 
 ```
-usage: unwarp_batch.py [-h] [--destination-folder DESTINATION_FOLDER] [--output-format OUTPUT_FORMAT] [--processes PROCESSES] calibration_svg grid_size_x grid_size_y output_pixels_per_grid_unit input_files [input_files ...]
+usage: unwarp_batch.py [-h] [--destination-folder DESTINATION_FOLDER] [--output-format OUTPUT_FORMAT] [--processes PROCESSES] calibration_svg grid_size_x grid_size_y output_pixels_per_grid_unit [input_files ...]
 
 positional arguments:
   calibration_svg
   grid_size_x
   grid_size_y
   output_pixels_per_grid_unit
-  input_files
+  input_files           All input files. Can use wildcards like *.tiff (default: None)
 
 optional arguments:
   -h, --help            show this help message and exit
-  --destination-folder DESTINATION_FOLDER
+  --destination-folder DESTINATION_FOLDER, -d DESTINATION_FOLDER
                         If set, original filenames are used. Else the files are stored in the current directory with the prefix "unwarped" (default: None)
   --output-format OUTPUT_FORMAT
                         jpg, png, tiff, etc ... Can be any format supported by imageio (default: png)
@@ -37,6 +37,7 @@ optional arguments:
 
 
 ## Creating calibration images ##
+- Open the bitmap image in inkscape directly. After that use save-as to save as svg. This makes sure the units/sizes of everything are correct. Do not first create a empty document, and then import the image.
 - The objects at the intersections should be circles
 - All the circles should have color magenta (`#FF00FF`) except for the special types
 - The upper left corner is marked by a green dot (`#00FF00`)
