@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     args = argparser.parse_args()
 
-    grid_size = (args.grid_size_x, args.grid_size_y)
+    grid_size = (args.grid_size_y, args.grid_size_x)
 
     grid_rows = grid_extractor.track_grid_from_svg(args.calibration_svg, grid_size)
 

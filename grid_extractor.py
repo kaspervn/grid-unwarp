@@ -14,7 +14,7 @@ def markers_from_file(svg_path):
         assert color_str[0] == '#'
         color = int(color_str[1:], base=16)
 
-        return np.array([x, y]), color
+        return np.array([y, x]), color
 
     tree = ET.parse(svg_path)
     root = tree.getroot()
@@ -43,24 +43,24 @@ def follow_grid(markers, grid_size, origin, first_x, first_y):
     first_row = follow_line(markers,
                             start=origin,
                             dir=first_x[0] - origin[0],
-                            no_expected=grid_size[0])
+                            no_expected=grid_size[1])
 
     first_column = follow_line(markers,
                                start=origin,
                                dir=first_y[0] - origin[0],
-                               no_expected=grid_size[1])
+                               no_expected=grid_size[0])
 
     rows = [first_row]
-    for n in range(1, grid_size[1]):
+    for n in range(1, grid_size[0]):
         rows.append(follow_line(markers,
                                   start=first_column[n],
                                   dir=rows[-1][1][0] - rows[-1][0][0],
-                                  no_expected=grid_size[0]))
+                                  no_expected=grid_size[1]))
     return rows
 
 
 def plot_grid(rows, grid_size, background_img=None, show=True, ax=None):
-    columns = [[rows[y][x] for y in range(grid_size[1])] for x in range(grid_size[0])]
+    columns = [[rows[y][x] for y in range(grid_size[0])] for x in range(grid_size[1])]
 
     if not ax:
         _, ax = plt.subplots()
@@ -72,8 +72,8 @@ def plot_grid(rows, grid_size, background_img=None, show=True, ax=None):
 
 
     def plot_line(line):
-        xs = [p[0][0] for p in line]
-        ys = [p[0][1] for p in line]
+        ys = [p[0][0] for p in line]
+        xs = [p[0][1] for p in line]
         ax.plot(xs, ys)
 
     for xline in rows:
@@ -118,6 +118,6 @@ def track_grid_from_svg(svg_path, grid_size):
 
 # some testing code to debug
 if __name__ == '__main__':
-    grid_size = (23, 25)
+    grid_size = (25, 23)
     rows = track_grid_from_svg('example.svg', grid_size)
     plot_grid(rows, grid_size, 'example.png')
